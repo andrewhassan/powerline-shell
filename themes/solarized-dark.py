@@ -6,7 +6,7 @@ class Color:
     HOSTNAME_BG = 10
 
     PATH_FG = 7
-    PATH_BG = 10
+    PATH_BG = 5 
     CWD_FG = 15
     SEPARATOR_FG = 14
 

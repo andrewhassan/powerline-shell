@@ -1,6 +1,8 @@
 import os
 
+# Andrew Hassan specific code here
 def get_short_path(cwd):
+    result = []
     home = os.getenv('HOME')
     names = cwd.split(os.sep)
     if names[0] == '': names = names[1:]
@@ -8,8 +10,13 @@ def get_short_path(cwd):
     for i in range(len(names)):
         path += os.sep + names[i]
         if os.path.samefile(path, home):
-            return ['~'] + names[i+1:]
-    return names
+            result = ['~'] + names[i+1:]
+    result = names
+
+    if len(result) > 3:
+        result = [result[0]] + ["..."] + result[-2:]
+    
+    return result
 
 
 def add_cwd_segment():
